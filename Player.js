@@ -21,6 +21,25 @@ class Player {
 
     console.log({ score });
 
+    const suitCounts = game.suitCounts();
+
+    Object.keys(suitCounts).forEach((suit) => {
+      console.log(`${suit} count: ${suitCounts[suit].total}`);
+    });
+
+    const suit =
+      suitCounts["spades"].total >= 4 ||
+      suitCounts["clubs"].total >= 4 ||
+      suitCounts["hearts"].total >= 4 ||
+      suitCounts["diamonds"].total >= 4;
+
+    console.log("suit", suit);
+
+    if (suit) {
+      bet(game.toRaiseByBlinds(5));
+      return;
+    }
+
     if (score >= 7) {
       bet(game.toRaiseByBlinds(2));
     } else if (score < 7 && score >= 4) {
