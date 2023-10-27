@@ -46,7 +46,8 @@ class Player {
         game.isFlush() ||
         game.isStraight() ||
         game.isThreeOfAKind() ||
-        game.isTwoPair()
+        game.isTwoPair() ||
+        game.isPair()
       ) {
         bet(game.toAllIn());
         return;
