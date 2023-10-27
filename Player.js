@@ -21,9 +21,9 @@ class Player {
 
     console.log({ score });
 
-    if (score >= 10) {
+    if (score >= 7) {
       bet(game.toRaiseByBlinds(2));
-    } else if (score < 10 && score >= 5) {
+    } else if (score < 7 && score >= 4) {
       bet(game.toRaiseByBlinds(1));
     } else {
       bet(game.toCall());
