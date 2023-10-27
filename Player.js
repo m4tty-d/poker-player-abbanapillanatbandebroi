@@ -47,7 +47,7 @@ class Player {
         game.isFlush() ||
         game.isStraight()
       ) {
-        bet(game.toRaiseByBlinds(3));
+        bet(game.allIn());
         return;
       }
 
