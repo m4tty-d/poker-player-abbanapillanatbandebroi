@@ -7,7 +7,6 @@ class Player {
   }
 
   static betRequest(gameState, bet) {
-    throw new Error("kicsi a faszom");
     const game = new GameState(gameState);
 
     console.log({ game });
