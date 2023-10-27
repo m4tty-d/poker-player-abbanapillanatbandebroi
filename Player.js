@@ -37,10 +37,8 @@ class Player {
     if (game.bettingRound() === "preflop") {
       if (score >= 7) {
         bet(game.toRaiseByBlinds(2));
-      } else if (score < 7 && score >= 4) {
+      } else {
         bet(game.toCall());
-      } else if (score < 0) {
-        bet(0);
       }
     } else {
       if (
