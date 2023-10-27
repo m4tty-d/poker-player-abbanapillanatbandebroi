@@ -40,12 +40,23 @@ class Player {
       return;
     }
 
-    if (score >= 7) {
-      bet(game.toRaiseByBlinds(2));
-    } else if (score < 7 && score >= 4) {
-      bet(game.toRaiseByBlinds(1));
+    if (game.bettingRound() === "preflop") {
+      if (score >= 7) {
+        bet(game.toRaiseByBlinds(2));
+      } else if (score < 7 && score >= 4) {
+        bet(game.toCall());
+      } else if (score < 0) {
+        bet(0);
+      }
     } else {
-      bet(0);
+      if (
+        game.isPoker() ||
+        game.isFullHouse() ||
+        game.isFlush() ||
+        game.isStraight()
+      ) {
+        bet(game.allIn());
+      }
     }
   }
 
