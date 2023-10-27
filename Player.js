@@ -13,7 +13,7 @@ class Player {
 
     console.log("---------------");
 
-    console.log({ player });
+    console.log("player", game.me());
 
     console.log("---------------");
 
