@@ -40,7 +40,7 @@ class Player {
         return;
       }
 
-      if (game.hasSomeBodyAllIn()) {
+      if (score < 10 && game.hasSomeBodyAllIn()) {
         bet(0);
         return;
       }
