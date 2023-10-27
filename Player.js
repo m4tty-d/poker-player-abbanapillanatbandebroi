@@ -48,14 +48,18 @@ class Player {
         game.isStraight()
       ) {
         bet(game.allIn());
+        return;
       }
 
       if (game.isThreeOfAKind()) {
         bet(game.toRaiseByBlinds(2));
+        return;
       } else if (game.isTwoPair()) {
         bet(game.toRaiseByBlinds(1));
+        return;
       } else if (game.isPair()) {
         bet(game.toCall());
+        return;
       } else {
         bet(0);
       }
