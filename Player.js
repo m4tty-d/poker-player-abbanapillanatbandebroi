@@ -21,10 +21,12 @@ class Player {
 
     console.log({ score });
 
-    if (score > 5) {
-      bet(game.currentBuyIn() - game.me().bet() + game.minimumRaise());
+    if (score >= 10) {
+      bet(game.toRaiseByBlinds(2));
+    } else if (score < 10 && score >= 5) {
+      bet(game.toRaiseByBlinds(1));
     } else {
-      bet(game.currentBuyIn() - game.me().bet());
+      bet(game.toCall());
     }
   }
 
