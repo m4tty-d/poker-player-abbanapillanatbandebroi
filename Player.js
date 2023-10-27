@@ -44,13 +44,6 @@ class Player {
         bet(0);
         return;
       }
-
-      if (score >= 6) {
-        bet(game.toCall());
-      } else {
-        bet(0);
-        return;
-      }
     } else {
       if (
         game.isPoker() ||
