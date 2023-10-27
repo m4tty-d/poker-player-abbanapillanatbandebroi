@@ -60,7 +60,8 @@ class Player {
       } else {
         if (game.hasSomebodyRaised() || game.bettingRound() === "river") {
           bet(0);
-          return;
+        } else {
+          bet(game.toCall());
         }
       }
     }
