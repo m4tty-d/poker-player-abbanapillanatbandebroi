@@ -59,11 +59,6 @@ class Player {
         if (game.bettingRound() === "river") {
           bet(0);
         } else {
-          if (game.hasSomeBodyAllIn()) {
-            bet(0);
-            return;
-          }
-
           bet(game.toCall());
         }
       }
