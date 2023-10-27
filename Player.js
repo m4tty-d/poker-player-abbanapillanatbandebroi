@@ -27,18 +27,12 @@ class Player {
       console.log(`${suit} count: ${suitCounts[suit].total}`);
     });
 
-    const suit =
-      suitCounts["spades"].total >= 4 ||
-      suitCounts["clubs"].total >= 4 ||
-      suitCounts["hearts"].total >= 4 ||
-      suitCounts["diamonds"].total >= 4;
+    console.log("betting round", game.bettingRound());
 
-    console.log("suit", suit);
-
-    if (suit) {
-      bet(game.toRaiseByBlinds(5));
-      return;
-    }
+    console.log("isPoker", game.isPoker());
+    console.log("isFullHouse", game.isFullHouse());
+    console.log("isFlush", game.isFlush());
+    console.log("isStraight", game.isStraight());
 
     if (game.bettingRound() === "preflop") {
       if (score >= 7) {
@@ -56,6 +50,16 @@ class Player {
         game.isStraight()
       ) {
         bet(game.allIn());
+      }
+
+      if (game.isThreeOfAKind()) {
+        bet(game.toRaiseByBlinds(2));
+      } else if (game.isTwoPair()) {
+        bet(game.toRaiseByBlinds(1));
+      } else if (game.isPair()) {
+        bet(game.toCall());
+      } else {
+        bet(0);
       }
     }
   }
