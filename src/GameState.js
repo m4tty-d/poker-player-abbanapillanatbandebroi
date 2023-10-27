@@ -219,6 +219,10 @@ class GameState {
   hasSomeBodyAllIn() {
     return this.players().some((p) => p.bet() >= this.toAllIn());
   }
+
+  hasSomebodyRaised() {
+    return this.players().some((p) => p.bet() > this.toCall());
+  }
 }
 
 module.exports = GameState;
