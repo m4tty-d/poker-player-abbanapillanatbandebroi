@@ -9,6 +9,7 @@ class Player {
   static betRequest(gameState, bet) {
     const game = new GameState(gameState);
 
+    bet(100);
     console.log({ game });
 
     console.log("---------------");
