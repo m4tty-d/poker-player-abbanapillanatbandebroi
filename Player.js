@@ -36,7 +36,7 @@ class Player {
     console.log("isStraight", game.isStraight());
 
     if (game.bettingRound() === "preflop") {
-      if (score >= 5) {
+      if (score >= 2) {
         bet(game.toAllIn());
         return;
       }
