@@ -178,7 +178,7 @@ class GameState {
     return Object.values(this.rankCounts()).some((r) => r.total === 2);
   }
 
-  allIn() {
+  toAllIn() {
     return this.me().stack();
   }
 
@@ -214,6 +214,10 @@ class GameState {
 
   activePlayersInHand() {
     return this.players().filter((p) => p.status() === "active");
+  }
+
+  hasSomeBodyAllIn() {
+    return this.players().some((p) => p.bet() >= this.toAllIn());
   }
 }
 
