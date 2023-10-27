@@ -13,13 +13,11 @@ class Player {
 
     console.log("---------------");
 
-    const player = new PlayerState(game.me());
-
     console.log({ player });
 
     console.log("---------------");
 
-    const score = player.score();
+    const score = game.me().score();
 
     console.log({ score });
 
