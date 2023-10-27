@@ -21,8 +21,10 @@ class Player {
 
     console.log({ score });
 
-    if (score > 25) {
+    if (score > 5) {
       bet(game.currentBuyIn() - game.me().bet() + game.minimumRaise());
+    } else {
+      bet(game.currentBuyIn() - game.me().bet());
     }
   }
 
