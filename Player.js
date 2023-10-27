@@ -54,7 +54,7 @@ class Player {
         game.isThreeOfAKind() ||
         game.isTwoPair()
       ) {
-        bet(game.allIn());
+        bet(game.toAllIn());
         return;
       } else {
         if (game.hasSomebodyRaised() || game.bettingRound() === "river") {
