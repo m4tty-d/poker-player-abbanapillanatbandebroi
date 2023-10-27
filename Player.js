@@ -44,6 +44,7 @@ class Player {
         bet(game.toCall());
       } else {
         bet(0);
+        return;
       }
     } else {
       if (
