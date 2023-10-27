@@ -35,6 +35,11 @@ class Player {
     console.log("isStraight", game.isStraight());
 
     if (game.bettingRound() === "preflop") {
+      if (game.hasSomeBodyAllIn()) {
+        bet(0);
+        return;
+      }
+
       if (score >= 6) {
         bet(game.toCall());
       } else {
@@ -45,20 +50,17 @@ class Player {
         game.isPoker() ||
         game.isFullHouse() ||
         game.isFlush() ||
-        game.isStraight()
+        game.isStraight() ||
+        game.isThreeOfAKind() ||
+        game.isTwoPair()
       ) {
         bet(game.allIn());
         return;
-      }
-
-      if (game.isThreeOfAKind()) {
-        bet(game.toRaiseByBlinds(2));
-        return;
-      } else if (game.isTwoPair()) {
-        bet(game.toRaiseByBlinds(1));
-        return;
       } else {
-        bet(game.toCall());
+        if (game.hasSomebodyRaised() || game.bettingRound() === "river") {
+          bet(0);
+          return;
+        }
       }
     }
   }
