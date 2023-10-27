@@ -45,7 +45,7 @@ class Player {
     } else if (score < 7 && score >= 4) {
       bet(game.toRaiseByBlinds(1));
     } else {
-      bet(game.toCall());
+      bet(0);
     }
   }
 
