@@ -35,7 +35,7 @@ class Player {
     console.log("isStraight", game.isStraight());
 
     if (game.bettingRound() === "preflop") {
-      if (score >= 15) {
+      if (score >= 10) {
         bet(game.toAllIn());
         return;
       }
@@ -56,7 +56,7 @@ class Player {
         bet(game.toAllIn());
         return;
       } else {
-        if (game.hasSomebodyRaised() || game.bettingRound() === "river") {
+        if (game.bettingRound() === "river") {
           bet(0);
         } else {
           bet(game.toCall());
